@@ -27,10 +27,9 @@ CARLA forum</a>
 
 <details>
 <summary> Show command lines to build on Windows</summary>
+<br>
+To execute the <code>make</code> commands below, you <b>must</b> use the Visual Studio 2017 native console x64 <b>with</b> administrator rights, otherwise you may be getting permission errors.
 
-!!! Important
-    To execute the ```make``` commands below, you **must** use the Visual Studio 2017 native console x64 **with** administrator rights, otherwise you may be getting permission errors.
-	
 ```sh
 # Make sure to meet the minimum requirements.
 
@@ -53,6 +52,10 @@ make PythonAPI
 
 # Press play in the Editor to initialize the server, and run an example script to test CARLA. 
 cd PythonAPI/Examples && python3 spawn_npc.py # Support for Python2 was provided until 0.9.10 (not included)
+
+# Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory.
+make PythonAPI ARGS="--python-version=2"
+
 ```
 </details>
 
@@ -155,9 +158,15 @@ The project may ask to build other instances such as `UE4Editor-Carla.dll` the f
 
 ```sh
 make PythonAPI && cd PythonAPI/examples && python3 spawn_npc.py  # Support for Python2 was provided until 0.9.10 (not included)
-``` 
+```
 !!! Important
     If the simulation is running at very low FPS rates, go to `Edit/Editor preferences/Performance` in the UE editor and disable __Use less CPU when in background__. 
+
+Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory.
+
+```sh
+make PythonAPI ARGS="--python-version=2"
+```
 
 Now CARLA is ready to go. Here is a brief summary of the most useful `make` commands available.  
 
