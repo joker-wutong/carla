@@ -54,7 +54,7 @@ pip3 install --user distro
 sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-8/bin/clang++ 180 &&
 sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180
 
-# Get a GitHub and a UE account, and link both.
+# Get a GitHub and a UE account, and link both
 # Install git.
 
 # Download Unreal Engine 4.24.
@@ -68,28 +68,28 @@ patch --strip=4 < ~/430667-13636743-patch.txt
 # Build UE
 ./Setup.sh && ./GenerateProjectFiles.sh && make
 
-# Open the UE Editor to check everything works properly.
+# Open the UE Editor to check everything works properly
 cd ~/UnrealEngine_4.24/Engine/Binaries/Linux && ./UE4Editor
 
-# Clone the CARLA repository.
+# Clone the CARLA repository
 git clone https://github.com/carla-simulator/carla
 
-# Get the CARLA assets.
+# Get the CARLA assets
 cd ~/carla
 ./Update.sh
 
-# Set the environment variable.
+# Set the environment variable
 export UE4_ROOT=~/UnrealEngine_4.24
 
-# make the CARLA server and the CARLA client.
+# make the CARLA server and the CARLA client
 make launch
 make PythonAPI
 
-# Press play in the Editor to initialize the server, and run an example script to test CARLA.
+# Press play in the Editor to initialize the server, and run an example script to test CARLA
 cd PythonAPI/examples
 python3 spawn_npc.py # Support for Python2 was provided until 0.9.10 (not included)
 
-# Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory.
+# Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory
 make PythonAPI ARGS="--python-version=2"
 ```
 

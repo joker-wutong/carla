@@ -31,7 +31,7 @@ CARLA forum</a>
 To execute the <code>make</code> commands below, you <b>must</b> use the Visual Studio 2017 native console x64 <b>with</b> administrator rights, otherwise you may be getting permission errors.
 
 ```sh
-# Make sure to meet the minimum requirements.
+# Make sure to meet the minimum requirements
 
 # Necessary software: 
 #   CMake
@@ -39,7 +39,7 @@ To execute the <code>make</code> commands below, you <b>must</b> use the Visual 
 #   Make
 #   Python3 x64
 #   Unreal Engine 4.24
-#   Visual Studio 2017 with Windows 8.1 SDK and x64 Visual C++ Toolset.
+#   Visual Studio 2017 with Windows 8.1 SDK and x64 Visual C++ Toolset
 
 # Set environment variables for the software
 
@@ -50,12 +50,10 @@ git clone https://github.com/carla-simulator/carla
 make launch
 make PythonAPI
 
-# Press play in the Editor to initialize the server, and run an example script to test CARLA. 
-cd PythonAPI/Examples && python3 spawn_npc.py # Support for Python2 was provided until 0.9.10 (not included)
-
-# Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory.
-make PythonAPI ARGS="--python-version=2"
-
+# Press play in the Editor to initialize the server, and run an example script to test CARLA
+cd PythonAPI/Examples && python3 spawn_npc.py 
+# The PythonAPI will be built based on the installed Python version
+# The docs will use Python3, as support for  Python2 was provided until 0.9.10 (not included)
 ```
 </details>
 
@@ -157,16 +155,14 @@ The project may ask to build other instances such as `UE4Editor-Carla.dll` the f
 * __make PythonAPI__ compiles the API client, necessary to grant control over the simulation. It is only needed the first time. Remember to run it again when updating CARLA. Scripts will be able to run after this command is executed. The following example will spawn some life into the town.  
 
 ```sh
-make PythonAPI && cd PythonAPI/examples && python3 spawn_npc.py  # Support for Python2 was provided until 0.9.10 (not included)
+make PythonAPI && cd PythonAPI/examples && python3 spawn_npc.py
+# The PythonAPI will be built based on the installed Python version 
+# The docs will use Python3, as support for  Python2 was provided until 0.9.10 (not included)
 ```
+
 !!! Important
     If the simulation is running at very low FPS rates, go to `Edit/Editor preferences/Performance` in the UE editor and disable __Use less CPU when in background__. 
 
-Optionally, to compile the PythonAPI for Python2, run the following command in the root CARLA directory.
-
-```sh
-make PythonAPI ARGS="--python-version=2"
-```
 
 Now CARLA is ready to go. Here is a brief summary of the most useful `make` commands available.  
 
